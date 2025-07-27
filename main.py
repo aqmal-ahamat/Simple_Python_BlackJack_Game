@@ -1,14 +1,4 @@
-'''
 
-# --------------Design/ Plan --------------------------
-
-Todo 1 - Ask the user if he wants to enter the game. If yes, enter the game else stop the program.
-Todo 2 - Give both the user and the system 2 cards each
-
-
-
-
-'''
 import random
 import os
 
