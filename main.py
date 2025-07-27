@@ -1,10 +1,10 @@
 
 import random
-import os
+
 
 Cards = [2,3,4,5,6,7,8,9,"K","Q","J","A"]
 
-
+Game_status = ""
 
 
 # a function to draw cards from the deck
@@ -27,11 +27,14 @@ def Check_total(deck):
     return total
 
 def Check_exceeds_21(user,total):
+
     if total > 21:
         if user == "player":
             print("Dealer wins!. 😭 your deck exceeds 21")
         else:
             print("You won!. 😎 Dealer's deck exceeds 21")
+
+
         return True
     else:
         return False
@@ -50,37 +53,52 @@ def BlackJack():
             print(f"Dealer's cards are :- {dealer_cards[0]}")
 
             while True:
+                global Game_status
+
                 user_input = input("Do you wish to draw another card? ('y' for yes and 'n' for no) : ")
 
                 if user_input == 'y':
                     player_cards.append(DrawCard())
                     player_total = Check_total(player_cards)
-                    Game_status = Check_exceeds_21("player", player_total)
+
                     print(f"Your cards are :- {player_cards}")
                     print(f"Dealer's cards are :- {dealer_cards[0]}")
+                    Game_status = Check_exceeds_21("player", player_total)
+
+
                     if Game_status:
-                        break;
+
+                        break
+
                 elif user_input == 'n':
                     Dealer_total = Check_total(dealer_cards)
-                    if Dealer_total < 17:
+                    while Dealer_total < 17:
                         dealer_cards.append(DrawCard())
                         Dealer_total = Check_total(dealer_cards)
-                        game_status = Check_exceeds_21("dealer", Dealer_total)
-
-                        break;
+                        Game_status = Check_exceeds_21("dealer", Dealer_total)
+                        if Game_status:
+                            print(f"Your cards are :- {player_cards}")
+                            print(f"Dealer's cards are :- {dealer_cards}")
+                    break;
                 else:
                     print("Enter a valid response");
 
-            player_total = Check_total(player_cards)
-            dealer_total = Check_total(dealer_cards)
-            print(f"Your cards are :- {player_cards}" )
-            print(f"Dealer's cards are :- {dealer_cards}")
-            if player_total > dealer_total:
-                print("You won !!!!! 🥳")
-            else:
-                print("You lose !!!!! 😔")
+
+            if not Game_status:
+
+                player_total = Check_total(player_cards)
+                dealer_total = Check_total(dealer_cards)
+                print(f"Your cards are :- {player_cards}" )
+                print(f"Dealer's cards are :- {dealer_cards}")
+                if player_total > dealer_total:
+                    print("You won !!!!! 🥳")
+                elif player_total < dealer_total:
+                    print("You lose !!!!! 😔")
+                else:
+                    print("Its a draw !!!!! 😲")
 
             user_input_play_again = input("How about a re-match?? 😏 ('y' for yes and 'n' for no) : ")
+            print("----------------------------------------------------------------------------------------------------------------------------")
             if user_input_play_again == 'n':
                 break
 
