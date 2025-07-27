@@ -82,7 +82,29 @@ A simple command-line Blackjack game written in Python. This project is part of 
 
 ## ✍🏻 What I Learned
 
-- something
+✅ Core Python Programming
+Used variables, functions, conditionals, loops, and data structures (lists) to implement game logic.
+
+✅ Randomization
+Utilized the random module to simulate realistic card draws.
+
+✅ Game Flow Logic
+Designed a turn-based system where both the player and dealer take actions based on Blackjack rules.
+
+✅ Custom Scoring System
+Implemented a dynamic card value system, including correct handling of Aces as 1 or 11 depending on the situation.
+
+✅ User Interaction via Console
+Handled user input to guide gameplay and created a clear, interactive console experience.
+
+✅ Basic User Input Validation
+Validated player responses (e.g., 'y' or 'n') to prevent unexpected behavior and maintain a smooth game flow.
+
+✅ Control Flow & State Management
+Managed game state using flags and loops to allow replayability and structured progression.
+
+✅ Basic Problem Solving
+Translated real-world Blackjack rules into logical, functional Python code.
 
 <br>
 
